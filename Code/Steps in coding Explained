@@ -1,0 +1,24 @@
+IMPROVED BM25 APPROACH: 
+relevance(q,d) = BM25(q',d) + BM25(q",d)
+
+PART 1:
+1. Import folder consisting of only Corpus
+2. Preprocess it (Lowercase, Remove Punctuation, Number Filtering, Remove Stop Words, Stemming)
+3. Give tokenized corpus as input to BM25Okapi()
+
+PART 2:
+4. Import folder consisting of Corpus and Query
+5. Preprocess it the same way
+6. Use TF-IDF Vectorizer to find idf values on the output of Step 5
+7. Extract top 50% of words from the query based on idf values, that will be the new query
+8. Use bm25.getScores() to find document scores
+9. These are doc_scores_A
+
+PART 3:
+10. Use output of Step 5 as the Query and Apply bm25.getScores()
+11. These are doc_scores_B
+
+PART 4:
+12. ADD doc_scores_A and doc_scores_B
+13. The result of Step 12 is the final relevance ranking of documents
+14. Save them to a file for TREC-EVAL
