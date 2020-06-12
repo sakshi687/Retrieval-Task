@@ -1,4 +1,4 @@
-IMPROVED BM25 APPROACH: 
+HLJIT - IMPROVED BM25 APPROACH: 
 relevance(q,d) = BM25(q',d) + BM25(q",d)
 
 PART 1:
