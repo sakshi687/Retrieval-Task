@@ -22,12 +22,14 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 ## Fields In Output JSON:
 
 1. Act Title: this field is a string that contains title of the Act
+
 1. Act ID: this field is a string that contains Act ID
+
 1. Enactment Date: this field is a string that contains enactment date of the Act
  
-**4. Act Definition**: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with *key* = paragraph number, *value* = paragraph (refer to Point 8b).
+1. **Act Definition**: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with *key* = paragraph number, *value* = paragraph (refer to Point 8b).
 
-**5. Chapters/Parts**: this field is a dictionary with *key* = number starting from zero, *value* =
+1. **Chapters/Parts**: this field is a dictionary with *key* = number starting from zero, *value* =
 
 		   "0": {
 			"ID": "CHAPTER I",
@@ -43,23 +45,23 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 			}
 
 
-**6. Chapter/Part ID**: this field is a string that generally contains for e.g. CHAPTER IV, PART I depending upon whether the pdf belongs to Pattern No. 2 or Pattern No. 4. If the Chapter/Part is omitted or repealed then the ID will contain “[Repealed]” or “[Omitted]”. If the pdf belongs to Pattern No. 3 then this field won’t be present in Chapters field.
+1. **Chapter/Part ID**: this field is a string that generally contains for e.g. CHAPTER IV, PART I depending upon whether the pdf belongs to Pattern No. 2 or Pattern No. 4. If the Chapter/Part is omitted or repealed then the ID will contain “[Repealed]” or “[Omitted]”. If the pdf belongs to Pattern No. 3 then this field won’t be present in Chapters field.
 
-**7. Chapter/Part Name**: this field is a string that contains chapter or part name unless the Chapter/Part is omitted or repealed then this field will be empty.
+1. **Chapter/Part Name**: this field is a string that contains chapter or part name unless the Chapter/Part is omitted or repealed then this field will be empty.
 
-**8. Sections**: this field is a dictionary that contains sections with key as "Section 1", "Section 4A", "Section 19-H" etc. and value is again a dictionary that contains
-	a. heading: this field is a string and contains the section heading
-	b. paragraphs: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
-		i. text: this field is string which contains the paragraph preceding the indentation
-		ii. contains: this field is again paragraph (refer to point 8b)
+1. **Sections**: this field is a dictionary that contains sections with key as "Section 1", "Section 4A", "Section 19-H" etc. and value is again a dictionary that contains
+	1. heading: this field is a string and contains the section heading
+	1. paragraphs: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
+		1. text: this field is string which contains the paragraph preceding the indentation
+		1. contains: this field is again paragraph (refer to point 8b)
 
-**9. Subheadings**: this field is optional and is contained within Chapters/Parts field and is a list of dictionary elements that contains
-	a. Name: the name of subheading
-	b. Sections: (refer to point 8)
+1. **Subheadings**: this field is optional and is contained within Chapters/Parts field and is a list of dictionary elements that contains
+	1. Name: the name of subheading
+	1. Sections: (refer to point 8)
 
-**10. Schedule/Annexure/Appendix/Forms**: this field is a dictionary that can be empty if there are no schedules or appendix in the pdf.
+1. **Schedule/Annexure/Appendix/Forms**: this field is a dictionary that can be empty if there are no schedules or appendix in the pdf.
 
-**11. Footnotes**: this field is a dictionary with *key* = Page No. of the pdf and *value* = paragraphs. It can be empty if there are no footnotes in a pdf
+1. **Footnotes**: this field is a dictionary with *key* = Page No. of the pdf and *value* = paragraphs. It can be empty if there are no footnotes in a pdf
 
 
 ## Accuracy:
