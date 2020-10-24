@@ -1,20 +1,23 @@
 Source:  https://www.indiacode.nic.in/ 
+
 Under Central Acts there were 856 acts presented in the form of pdfs. The aim was to convert these pdfs into JSON format to have access to structured data.
 
 Upon inspection each pdf seemed to have - Act Title, Act ID, Enactment Date and Act Definition.
+
 Furthermore, these pdfs can be broadly categorized into four patterns which are
-Pattern No. 1: Sections
-Pattern No. 2: Chapters (that may or may not have subheadings) containing Sections
-Pattern No. 3: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
-Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
+	Pattern No. 1: Sections
+	Pattern No. 2: Chapters (that may or may not have subheadings) containing Sections
+	Pattern No. 3: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
+	Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
 Apart from this, these pdfs may have Schedules, Annexures, Appendix and Forms.
+
 All the footnotes in a pdf have been extracted separately so that they do not get merged with the section content.
 
 ## TOOL USED:
 PDFMiner: This required PDFMiner which is a text extraction tool for PDF documents. It analyzes the pdf based on its layout and provides detailed information of each layout element (LTPage, LTRect, LTLine etc.).
 
 
-### FIELDS IN OUTPUT JSON:
+## FIELDS IN OUTPUT JSON:
 
 1. Act Title: this field is a string that contains title of the Act
 
@@ -59,29 +62,29 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 11. Footnotes: this field is a dictionary with key = Page No. of the pdf and value = paragraphs. It can be empty if there are no footnotes in a pdf
 
 
-ACCURACY:
+## Accuracy:
 
-> Act Title, Act ID, Enactment Date and Act Definition:
+* Act Title, Act ID, Enactment Date and Act Definition:
 	These can be identified with 100% accuracy
 
-> Section heading:
+* Section heading:
 	If a Section has multiple headings under same section number only first heading is recorded. Otherwise the section name can be identified perfectly with accuracy of 100%
 
-> Section paragraphs:
+* Section paragraphs:
 	The start of section content is not accurate because we mark the beginning of section content from the point where characters become non-bold which can sometimes lead to part of section heading being included in section content. Also, sometimes in the section content paragraph change is not detected because of irregular line gap. This leads to paragraphs getting merged or nested differently but there is no information loss. Overall, the accuracy is 95%.
 
-> Subheadings in Chapter/Parts pattern:
+* Subheadings in Chapter/Parts pattern:
 	Not able to identify some of the subheadings in Chapters and Parts as they get merged with Chapter name or Part name.
 
 
 
-POINTS TO REVIEW LATER:
-	• Handling tables in pdfs
-	• Handling forms in pdfs
-	• Centered text in sections or schedules messes with the formatting
-	• Line gap that identifies new paragraphs sometimes not consistent across a pdf
-	• Adding some kind of reference link to the Footnotes
-	• In table of content if a Section has multiple headings only one heading is recorded. For e.g. 
+## Points To Review Later:
+	* Handling tables in pdfs
+	* Handling forms in pdfs
+	* Centered text in sections or schedules messes with the formatting
+	* Line gap that identifies new paragraphs sometimes not consistent across a pdf
+	* Adding some kind of reference link to the Footnotes
+	* In table of content if a Section has multiple headings only one heading is recorded. For e.g. 
 		     1. Short title.
 			Extent of Act.
 	  This will be recorded as just ‘Short title.’
