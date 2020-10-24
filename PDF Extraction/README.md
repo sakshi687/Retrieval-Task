@@ -78,6 +78,9 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 * **Subheadings in Chapter/Parts pattern**:
 	Not able to identify some of the subheadings in Chapters and Parts as they get merged with Chapter name or Part name.
 
+* **Footnotes**:
+	Footnotes can be identified with 100% accuracy.
+
 
 
 ## Points To Review Later:
