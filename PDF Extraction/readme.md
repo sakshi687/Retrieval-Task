@@ -1,6 +1,6 @@
-Source:  https://www.indiacode.nic.in/ 
+Source:  https://www.indiacode.nic.in/ <br>
 Under Central Acts there were 856 acts presented in the form of pdfs. The aim was to convert these pdfs into JSON format to have access to structured data.
-
+<br><br>
 Upon inspection each pdf seemed to have - Act Title, Act ID, Enactment Date and Act Definition.
 Furthermore, these pdfs can be broadly categorized into four patterns which are
 Pattern No. 1: Sections
