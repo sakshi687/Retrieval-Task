@@ -21,11 +21,9 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 
 ## Fields In Output JSON:
 
-**1. Act Title**: this field is a string that contains title of the Act
-
-**1. Act ID**: this field is a string that contains Act ID
-
-**1. Enactment Date**: this field is a string that contains enactment date of the Act
+1. Act Title: this field is a string that contains title of the Act
+1. Act ID: this field is a string that contains Act ID
+1. Enactment Date: this field is a string that contains enactment date of the Act
  
 **4. Act Definition**: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with *key* = paragraph number, *value* = paragraph (refer to Point 8b).
 
