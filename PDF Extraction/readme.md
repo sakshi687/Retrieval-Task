@@ -5,10 +5,10 @@ Under Central Acts there were 856 acts presented in the form of pdfs. The aim wa
 Upon inspection each pdf seemed to have - Act Title, Act ID, Enactment Date and Act Definition.
 
 Furthermore, these pdfs can be broadly categorized into four patterns which are
-	Pattern No. 1: Sections
-	Pattern No. 2: Chapters (that may or may not have subheadings) containing Sections
-	Pattern No. 3: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
-	Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
+* Pattern No. 1: Sections
+* Pattern No. 2: Chapters (that may or may not have subheadings) containing Sections
+* Pattern No. 3: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
+* Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
 Apart from this, these pdfs may have Schedules, Annexures, Appendix and Forms.
 
 All the footnotes in a pdf have been extracted separately so that they do not get merged with the section content.
@@ -19,15 +19,15 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 
 ## FIELDS IN OUTPUT JSON:
 
-1. Act Title: this field is a string that contains title of the Act
+**1. Act Title**: this field is a string that contains title of the Act
 
-2. Act ID: this field is a string that contains Act ID
+**2. Act ID**: this field is a string that contains Act ID
 
-3. Enactment Date: this field is a string that contains enactment date of the Act
+3. **Enactment Date**: this field is a string that contains enactment date of the Act
  
-4. Act Definition: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with key = paragraph number, value = paragraph (refer to Point 8b).
+4. **Act Definition**: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with *key* = paragraph number, *value* = paragraph (refer to Point 8b).
 
-5. Chapters/Parts: this field is a dictionary with key = number starting from zero, value =
+5. Chapters/Parts: this field is a dictionary with *key* = number starting from zero, *value* =
 
 		   "0": {
 			"ID": "CHAPTER I",
@@ -49,7 +49,7 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 
 8. Sections: this field is a dictionary that contains sections with key as "Section 1", "Section 4A", "Section 19-H" etc. and value is again a dictionary that contains
 	a. heading: this field is a string and contains the section heading
-	b. paragraphs: this field is a dictionary with key = paragraph number starting from zero, value = paragraph. If the paragraph has nested indentation this field can then further contain
+	b. paragraphs: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
 		i. text: this field is string which contains the paragraph preceding the indentation
 		ii. contains: this field is again paragraph (refer to point 8b)
 
@@ -59,7 +59,7 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 
 10. Schedule/Annexure/Appendix/Forms: this field is a dictionary that can be empty if there are no schedules or appendix in the pdf.
 
-11. Footnotes: this field is a dictionary with key = Page No. of the pdf and value = paragraphs. It can be empty if there are no footnotes in a pdf
+11. Footnotes: this field is a dictionary with *key* = Page No. of the pdf and *value* = paragraphs. It can be empty if there are no footnotes in a pdf
 
 
 ## Accuracy:
