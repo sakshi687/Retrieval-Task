@@ -89,4 +89,5 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 * In table of content if a Section has multiple headings only one heading is recorded. For e.g. 
 
 		     1. Short title.
-			Extent of Act.This will be recorded as just ‘Short title.’
+			  Extent of Act.
+   This will be recorded as just ‘Short title.’
