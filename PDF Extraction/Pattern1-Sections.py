@@ -285,28 +285,10 @@ def act_title(Lines):
             break
         string += line[3] + ' '
     return string
-    """
-    pageno = None    
-    for line in Lines:
-        if line[3] == actDate:
-            pageno = line[6]
-            break
-    
-    string = ''
-    for line in Lines:
-        if line[6] == pageno:
-            if line[3] == actID:
-                string = string.strip()
-                break
-            else:
-                string += line[3] + ' '
-    
-    string = clear_references(string)
-    return string"""
 
 
 # In[11]:
-
+# EXtract ACT ID, ACT TITLE, ENACTMENT DATE
 
 actID = act_id(Lines)
 actDate = enactment_date(Lines, actID)
@@ -436,7 +418,7 @@ def act_definition(Lines, actDate):
 
 
 # In[13]:
-
+# Extract ACT DEFINITION
 
 actDefinition = act_definition(Lines, actDate)
 
@@ -504,14 +486,7 @@ def sections_list(Lines, actDate):
                     list_of_sections.append([sec_id,sec_name])
                     
             elif regex.search(r"\b(SCHEDULE|APPENDIX|ANNEXURE){e<3}\b", line[3], flags=regex.I) is not None or re.search('^FORM\s*\.?$', line[3]) is not None:
-                break       #CHANGED
-                    
-            #elif re.search(r"\bSCHEDULE\b", line[3].upper()) is not None or re.search(r"\bAPPENDIX\b", line[3].upper()) is not None or re.search(r"\bANNEXURE\b", line[3].upper()) is not None:
-            #    if line[3].lower().find('omitted')!=-1 or line[3].lower().find('repealed')!=-1:                      
-            #            list_of_schedules.append(re.sub('\[.*?\]', '', line[3]).strip())
-            #            omittedScheduleList.append([len(list_of_schedules)-1, line[3]])  
-            #    else:
-            #        list_of_schedules.append(line[3])
+                break
                 
     return list_of_sections, omittedSectionList, schedule_index+1
 
@@ -613,21 +588,6 @@ def has_section(index, Lines, section, omittedSectionList):
             flag = False
             #seenDot = False
             for i, text_line in enumerate(Lines[index][5]):
-                #dontUse = []                    #Check if 4[ any references that are not-bold are there
-                #isReference = False
-                """for j, character in enumerate(text_line):
-                    if isinstance(character, LTChar):
-                        if not seenDot and character._text == '.' :
-                            dontUse.extend(range(j))
-                            seenDot = True
-                        if character._text.isdigit():
-                            isReference = True
-                            continue
-                        if isReference and character._text == '[':
-                            dontUse.append(j-1)
-                            dontUse.append(j)
-                            isReference = False"""
-                #seenPunct = False
                 for j, character in enumerate(text_line):
                     if isinstance(character, LTChar):
                         if regex.search(r"[\p{Pd}\.]", character._text) is not None:
@@ -660,21 +620,6 @@ def has_section(index, Lines, section, omittedSectionList):
                     flag = False
                     #seenDot = False
                     for i, text_line in enumerate(Lines[index+inc][5]):
-                        #dontUse = []                    #Check if 4[ any references that are not-bold are there
-                        #isReference = False
-                        """for j, character in enumerate(text_line):
-                            if isinstance(character, LTChar):
-                                if not seenDot and character._text == '.' :
-                                    dontUse.extend(range(j))
-                                    seenDot = True
-                                if character._text.isdigit():
-                                    isReference = True
-                                    continue
-                                if isReference and character._text == '[':
-                                    dontUse.append(j-1)
-                                    dontUse.append(j)
-                                    isReference = False"""
-                        #seenPunct = False
                         for j, character in enumerate(text_line):
                             if isinstance(character, LTChar):
                                 if regex.search(r"[\p{Pd}\.]", character._text) is not None:
@@ -732,23 +677,7 @@ def find_section(index, Lines, section, omittedSectionList):
         return x0, y0, string, jump_inc
     
     flag = False
-    #seenDot = False
     for i, text_line in enumerate(Lines[index][5]):
-        #dontUse = []                    #Check if 4[ any references that are not-bold are there
-        #isReference = False
-        """for j, character in enumerate(text_line):
-            if isinstance(character, LTChar):
-                if not seenDot and character._text == '.' :
-                    dontUse.extend(range(j))
-                    seenDot = True
-                if character._text.isdigit():
-                    isReference = True
-                    continue
-                if isReference and character._text == '[':
-                    dontUse.append(j-1)
-                    dontUse.append(j)
-                    isReference = False"""
-        #seenPunct = False
         for j, character in enumerate(text_line):
             if isinstance(character, LTChar):
                 if regex.search(r"[\p{Pd}\.]", character._text) is not None:
@@ -782,23 +711,7 @@ def find_section(index, Lines, section, omittedSectionList):
         while True:
             additionalSection = ''
             flag = False
-            #seenDot = False
             for i, text_line in enumerate(Lines[index+inc][5]):
-                #dontUse = []                    #Check if 4[ any references that are not-bold are there
-                #isReference = False
-                """for j, character in enumerate(text_line):
-                    if isinstance(character, LTChar):
-                        if not seenDot and character._text == '.' :
-                            dontUse.extend(range(j))
-                            seenDot = True
-                        if character._text.isdigit():
-                            isReference = True
-                            continue
-                        if isReference and character._text == '[':
-                            dontUse.append(j-1)
-                            dontUse.append(j)
-                            isReference = False"""
-                #seenPunct = False
                 for j, character in enumerate(text_line):
                     if isinstance(character, LTChar):
                         if regex.search(r"[\p{Pd}\.]", character._text) is not None:
