@@ -1,6 +1,6 @@
-Source:  https://www.indiacode.nic.in/ <br>
+Source:  https://www.indiacode.nic.in/ 
 Under Central Acts there were 856 acts presented in the form of pdfs. The aim was to convert these pdfs into JSON format to have access to structured data.
-<br><br>
+
 Upon inspection each pdf seemed to have - Act Title, Act ID, Enactment Date and Act Definition.
 Furthermore, these pdfs can be broadly categorized into four patterns which are
 Pattern No. 1: Sections
@@ -10,11 +10,11 @@ Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
 Apart from this, these pdfs may have Schedules, Annexures, Appendix and Forms.
 All the footnotes in a pdf have been extracted separately so that they do not get merged with the section content.
 
-# TOOL USED:
+## TOOL USED:
 PDFMiner: This required PDFMiner which is a text extraction tool for PDF documents. It analyzes the pdf based on its layout and provides detailed information of each layout element (LTPage, LTRect, LTLine etc.).
 
 
-FIELDS IN OUTPUT JSON:
+### FIELDS IN OUTPUT JSON:
 
 1. Act Title: this field is a string that contains title of the Act
 
