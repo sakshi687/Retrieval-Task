@@ -10,7 +10,7 @@ Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
 Apart from this, these pdfs may have Schedules, Annexures, Appendix and Forms.
 All the footnotes in a pdf have been extracted separately so that they do not get merged with the section content.
 
-**TOOL USED:**
+TOOL USED:
 PDFMiner: This required PDFMiner which is a text extraction tool for PDF documents. It analyzes the pdf based on its layout and provides detailed information of each layout element (LTPage, LTRect, LTLine etc.).
 
 
