@@ -21,11 +21,11 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 
 ## Fields In Output JSON:
 
-1. Act Title: this field is a string that contains title of the Act
+**1. Act Title**: this field is a string that contains title of the Act
 
-1. Act ID: this field is a string that contains Act ID
+**1. Act ID**: this field is a string that contains Act ID
 
-1. Enactment Date: this field is a string that contains enactment date of the Act
+**1. Enactment Date**: this field is a string that contains enactment date of the Act
  
 1. **Act Definition**: the act definition is split into paragraphs and each paragraph is numbered starting from zero. This field is a dictionary with *key* = paragraph number, *value* = paragraph (refer to Point 8b).
 
@@ -50,8 +50,9 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 1. **Chapter/Part Name**: this field is a string that contains chapter or part name unless the Chapter/Part is omitted or repealed then this field will be empty.
 
 1. **Sections**: this field is a dictionary that contains sections with key as "Section 1", "Section 4A", "Section 19-H" etc. and value is again a dictionary that contains
-	1. heading: this field is a string and contains the section heading
-	1. paragraphs: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
+	**1. heading**: this field is a string and contains the section heading
+	1. **paragraphs**: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
+	
 		1. text: this field is string which contains the paragraph preceding the indentation
 		1. contains: this field is again paragraph (refer to point 8b)
 
