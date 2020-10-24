@@ -1,3 +1,4 @@
+## Introduction
 Source:  https://www.indiacode.nic.in/ 
 
 Under Central Acts there were 856 acts presented in the form of pdfs. The aim was to convert these pdfs into JSON format to have access to structured data.
@@ -5,19 +6,20 @@ Under Central Acts there were 856 acts presented in the form of pdfs. The aim wa
 Upon inspection each pdf seemed to have - Act Title, Act ID, Enactment Date and Act Definition.
 
 Furthermore, these pdfs can be broadly categorized into four patterns which are
-* Pattern No. 1: Sections
-* Pattern No. 2: Chapters (that may or may not have subheadings) containing Sections
-* Pattern No. 3: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
-* Pattern No. 4: Parts (that may or may not have subheadings) containing Sections
+* *Pattern No. 1*: Sections
+* *Pattern No. 2*: Chapters (that may or may not have subheadings) containing Sections
+* *Pattern No. 3*: Chapters without explicitly mentioning the word CHAPTER but are subheadings from above pattern containing Sections. (i.e. Headings containing Sections)
+* *Pattern No. 4*: Parts (that may or may not have subheadings) containing Sections
+
 Apart from this, these pdfs may have Schedules, Annexures, Appendix and Forms.
 
 All the footnotes in a pdf have been extracted separately so that they do not get merged with the section content.
 
-## TOOL USED:
+## Tool Used:
 PDFMiner: This required PDFMiner which is a text extraction tool for PDF documents. It analyzes the pdf based on its layout and provides detailed information of each layout element (LTPage, LTRect, LTLine etc.).
 
 
-## FIELDS IN OUTPUT JSON:
+## Fields In Output JSON:
 
 **1. Act Title**: this field is a string that contains title of the Act
 
@@ -68,7 +70,6 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 	These can be identified with 100% accuracy
 
 * **Section heading**:
-
 	If a Section has multiple headings under same section number only first heading is recorded. Otherwise the section name can be identified perfectly with accuracy of 100%
 
 * **Section paragraphs**:
