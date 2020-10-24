@@ -52,7 +52,6 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 1. **Sections**: this field is a dictionary that contains sections with key as "Section 1", "Section 4A", "Section 19-H" etc. and value is again a dictionary that contains
 	1. **heading**: this field is a string and contains the section heading
 	1. **paragraphs**: this field is a dictionary with *key* = paragraph number starting from zero, *value* = paragraph. If the paragraph has nested indentation this field can then further contain
-	
 		1. **text**: this field is string which contains the paragraph preceding the indentation
 		1. **contains**: this field is again paragraph (refer to point 8b)
 
@@ -90,6 +89,4 @@ PDFMiner: This required PDFMiner which is a text extraction tool for PDF documen
 * In table of content if a Section has multiple headings only one heading is recorded. For e.g. 
 
 		     1. Short title.
-			Extent of Act.
-
-This will be recorded as just ‘Short title.’
+			Extent of Act.This will be recorded as just ‘Short title.’
